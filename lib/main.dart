@@ -31,8 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  int _currentIndex=0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -69,14 +68,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
-                        width: MediaQuery.of(context).size.width,
+                        height: 100,
+                        width: 100,
+                        //width: MediaQuery.of(context).size.width,
                         margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                        decoration: 
-                          i == _currentIndex ? const BoxDecoration(color: Colors.orange) : 
-                           BoxDecoration(color: Colors.orange.withOpacity(0.2)),
-                        child: Text(
-                          'text $i',
-                          style: const TextStyle(fontSize: 16.0),
+                        decoration: i == _currentIndex
+                            ? const BoxDecoration(
+                                color: Colors.orange,
+                                image: DecorationImage(
+                                  image: ExactAssetImage(
+                                      'lib/assets/images/bebidas.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : const BoxDecoration(
+                                image:  DecorationImage(
+                                  image: ExactAssetImage(
+                                      'lib/assets/images/baiaodedois2.jpg'),
+                                  fit: BoxFit.cover,
+                                  opacity: 0.5
+                              ),
+                            ),
+                        child: const Text(
+                          '',
+                          style: TextStyle(fontSize: 16.0),
                         ));
                   },
                 );
@@ -88,4 +103,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
